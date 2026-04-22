@@ -1,0 +1,9 @@
+<!ELEMENT programa (imprimir | leer | asignar)*>
+
+<!ELEMENT imprimir (#PCDATA)>
+
+<!ELEMENT leer EMPTY>
+<!ATTLIST leer variable CDATA #REQUIRED>
+
+<!ELEMENT asignar (#PCDATA)>
+<!ATTLIST asignar variable CDATA #REQUIRED>

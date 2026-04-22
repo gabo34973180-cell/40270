@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE programa SYSTEM "gramatica.dtd">
+
+<programa>
+    <imprimir>Iniciando sistema de datos...</imprimir>
+    <asignar variable="version">1.0.2</asignar>
+    <imprimir>Ingrese su codigo de acceso:</imprimir>
+    <leer variable="password" />
+    <imprimir>Procesando...</imprimir>
+</programa>
