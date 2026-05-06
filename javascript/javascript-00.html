@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="id1">Título</h1>
+    <h2 id="id2">DOM Docement Object Model </h2>
+    <H3 id="id3">permite administrar la tarea. Tenemo sla posibilidad de alterar los nodos.</H3>
+    <h2 >API Application Programming Interface</h2>
+    <h3>El api permite crear una interfaz para interactuar con el documento</h3>
+    <p>Vamos a utilizar un api para modificar el DOM</p>
+    <p>Javascript es el lenguaje de programación del lado del cliente</p>
+    <button id="id4" onclick="escribir()">Hola</button>
+
+    <!-- Elementos de formulario -->
+    <input type="text" >
+
+
+    <script>
+        // esto es un comentario
+        // var elemento = 1
+        // let elemento = "uno"
+        const elemento = [1, 2, 3, 4]
+
+        function nombre() {
+            console.log("hola mundo")
+        }
+        for (k in elemento) {
+            console.log(elemento[k])
+        }
+
+        for (i = 0; i < elemento.length; i++) {
+            console.log(elemento[i])
+        }
+
+        console.log(elemento)
+
+        for (i = 0; i < 10; i++) {
+            if (i < 9) {
+                console.log("hola mundo")
+
+            }        
+            nombre()    
+        }
+        
+        //manipualacion del DOM
+        let html = document
+        let html2 = document.getElementById("id1")
+        console.log(html.getElementById ("id1").innerText)
+        html2.innerText = "Fin de la clase"
+
+        
+
+        function escribir () {
+            let entrada = document.getElementsByTagName("input")
+            console.log(entrada)
+
+            for (const key in entrada) {
+                if (Object.prototype.hasOwnProperty.call(entrada, key)) {
+                    const element = entrada[key];
+                    console.log(element)
+                }
+            }
+            let valor_entrada = entrada[0]
+            console.log(valor_entrada.value)
+            html2.innerText = valor_entrada.value
+        }
+
+    </script>
+    
+</body>
+</html>
