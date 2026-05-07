@@ -1,6 +1,7 @@
 let botones = document.getElementsByClassName("numeros")
 let resultado = document.getElementById("resultado")
 let param = ""
+let operacion = ""
 
 
 
@@ -17,6 +18,7 @@ function pinta( e ) {
 }
 
 let operadores = document.getElementsByClassName("operadores")
+
 for (const key in operadores) {
     if (!Object.hasOwn(operadores, key)) continue;
     const operador = operadores[key];
@@ -24,12 +26,18 @@ for (const key in operadores) {
     if (operador.innerText == "c") {
         operador.addEventListener("click", borrar)
     }if (operador.innerText == "+") {
-        operador.addEventListener("click", sumar)   
+        operador.addEventListener("click", operar)   
     }if (operador.innerText == "=") {
          operador.addEventListener("click", igual)   
-    } 
+    }if (operador.innerText == "-") {
+        operador.addEventListener("click", operar)
+    }if (operador.innerText == "*"){
+        operador.addEventListener("click", operar)
+    }if (operador.innerText == "/"){
+        operador.addEventListener("click", operar)
+    }
 
-    operador.addEventListener("click", pinta2)   
+  
 }
 
 
@@ -43,16 +51,26 @@ function borrar() {
     resultado.value = "";
 }
 
-function sumar() {
+function operar(e) {
     param = resultado.value
     operacion = e.target.innerText
     resultado.value = ""
     e.target.style.backgroundColor = "red"
 }
 
+
+
 function igual() {
     let param2 = resultado.value
     if (operacion == "+") {
         resultado.value = parseInt (param) + parseInt(param2)
+    }if(operacion == "-"){
+        resultado.value = parseInt (param) - parseInt(param2)
+    }if (operacion == "*"){
+        resultado.value = parseInt (param) * parseInt(param2)
+    }if (operacion == "/"){
+        resultado.value = parseInt (param) / parseInt(param2)
     }
+
 }
+

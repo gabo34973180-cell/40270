@@ -20,5 +20,6 @@ input {
 }
 
 .operadores {
+    width: 10%;
     background-color: greenyellow;
 }
