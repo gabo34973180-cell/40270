@@ -1,0 +1,132 @@
+let botones = document.getElementsByClassName("numeros")
+let resultado = document.getElementById("resultado")
+let params = [] 
+let operacion = ""
+
+for (const key in botones) {
+    if (!Object.hasOwn(botones, key)) continue;
+    const boton = botones[key];
+    boton.addEventListener("click", pinta)   
+}
+
+function pinta( e ) {
+    resultado.value += e.target.innerText
+}
+
+let operadores = document.getElementsByClassName("operadores")
+
+for (const key in operadores) {
+    if (!Object.hasOwn(operadores, key)) continue;
+    const operador = operadores[key];
+    
+    if (operador.innerText == "c") {
+        operador.addEventListener("click", borrar)
+    } else if (operador.innerText == "=") {
+        operador.addEventListener("click", igual)   
+    } else {
+        operador.addEventListener("click", optener_parametro)
+    }
+}
+
+function borrar() {
+    resultado.value = "";
+    params = []; 
+}
+function optener_parametro(e) {
+    params.push(resultado.value); 
+    operacion = e.target.innerText;
+    resultado.value = ""; 
+}
+
+function igual() {
+    params.push(resultado.value); 
+    let r = 0;
+
+    if (operacion == "+") {
+        for (const key in params) {
+            if(Object.prototype.hasOwnProperty.call(params, key)){
+                const prm = params[key];
+                r += parseInt(prm); 
+            }            
+        }
+        resultado.value = r;
+    } 
+    
+    if (operacion == "-") {
+         for (const key in params) {
+            if(Object.prototype.hasOwnProperty.call(params, key)){
+                const prm = params[key];
+                r -= parseInt(prm); 
+            }            
+        }
+        resultado.value = r;
+
+        
+    } 
+    
+    if (operacion == "*") {
+        r = 1;
+        for (const key in params) {
+            if(Object.prototype.hasOwnProperty.call(params, key)){
+                const prm = params[key];
+                r *= parseInt(prm); 
+            }            
+        }
+    
+    if (operacion == "/") {
+        r = 1;
+        for (const key in params) {
+            if(Object.prototype.hasOwnProperty.call(params, key)){
+                const prm = params[key];
+                r /= parseInt(prm); 
+            }            
+        }
+    }
+
+}
+}
+
+function igual2() {
+    prms.push
+    let bandera = false;
+    let r = 0;
+    let op = operacion;
+    for (const key in prms) {
+        if(Object.prototype.hasOwnProperty.call(prms, key)){
+            const prm = prms[key];
+            switch (op) {
+                case "+":
+                    r += parseInt(prm);
+                    break;
+                case "-":
+                    //r -= parseInt(prm);
+                    if (bandera == false){
+                        r = parseInt(prm);
+                        bandera = true;
+                    }else{
+                        r -= parseInt(prm);
+                    }
+                    break;
+                case "*":
+                    if (bandera == false){
+                        r = parseInt(prm);
+                        bandera = true;
+                    }else{
+                        r *= parseInt(prm);
+                    }
+                   
+                    break;  
+                case "/":
+                    if (bandera == false){
+                        r = parseInt(prm);
+                        bandera = true;
+                    }else{
+                        r /= parseInt(prm);
+                    }
+
+                    break;
+                
+            }
+        }
+    }   
+}
