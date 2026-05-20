@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mostra informacion</h1>
+    <button onclick="cargar_informacion()">Cargar</button>
+    <table id="tabla"> 
+        <!--tr>td{$}*2+tr>td{$}*2-->
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </tr>
+    </table>
+    <script>
+        let datos = ["nombre","password","jonh","1234","jane","5678"];
+        function cargar_informacion(){
+            let tabla = document.getElementById("tabla");
+                let t  = ""   
+
+                for (const key in datos) {const element = datos[key];
+                    let i = parseInt(key);
+                    if (i % 2 === 0){
+
+                        t += "<tr>"
+                    }
+                    t += "<td>" + element + "</td>"
+                    if (i % 2 === 0){
+                        t + "</tr>"
+                    }
+                }
+            tabla.innerHTML = t + "</tr>"
+
+        }
+    </script>
+</body>
+</html>
